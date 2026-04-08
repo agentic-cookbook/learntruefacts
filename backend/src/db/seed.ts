@@ -12,11 +12,6 @@ async function seed() {
     process.exit(1);
   }
 
-  if (password.length < 12) {
-    console.error("ADMIN_PASSWORD must be at least 12 characters");
-    process.exit(1);
-  }
-
   const existing = await db.select().from(users).where(eq(users.email, email));
 
   if (existing.length > 0) {

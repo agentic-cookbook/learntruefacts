@@ -10,40 +10,44 @@
   },
   "services": {
     "backend": {
-      "status": "scaffolded",
+      "status": "deployed",
       "platform": "railway",
-      "url": null,
+      "url": "https://backend-production-c42c9.up.railway.app",
       "database": "postgresql",
-      "lastDeployed": null
+      "lastDeployed": "2026-04-08T23:05:00.000Z"
     },
     "auth-service": {
-      "status": "scaffolded",
+      "status": "deployed",
       "platform": "railway",
-      "url": null,
+      "url": "https://auth-service-production-d5ea.up.railway.app",
       "database": "postgresql",
-      "lastDeployed": null
+      "lastDeployed": "2026-04-08T23:20:00.000Z"
     },
     "main": {
-      "status": "scaffolded",
+      "status": "deployed",
       "platform": "cloudflare",
+      "url": "https://learn-true-facts-main.mwfullerton.workers.dev",
       "domain": "learntruefacts.ai",
       "workerName": "learn-true-facts-main",
-      "lastDeployed": null
+      "lastDeployed": "2026-04-08T23:07:00.000Z"
     },
     "admin": {
-      "status": "scaffolded",
+      "status": "deployed",
       "platform": "cloudflare",
+      "url": "https://learn-true-facts-admin.mwfullerton.workers.dev",
       "domain": "admin.learntruefacts.ai",
       "workerName": "learn-true-facts-admin",
-      "lastDeployed": null
+      "lastDeployed": "2026-04-08T23:07:00.000Z"
     },
     "dashboard": {
-      "status": "scaffolded",
+      "status": "deployed",
       "platform": "cloudflare",
+      "url": "https://learn-true-facts-dashboard.mwfullerton.workers.dev",
       "domain": "dashboard.learntruefacts.ai",
       "workerName": "learn-true-facts-dashboard",
       "d1Database": "learn-true-facts-dashboard-db",
-      "lastDeployed": null
+      "d1DatabaseId": "a94bf3b6-a082-4cde-a109-53a0e4864780",
+      "lastDeployed": "2026-04-08T23:08:00.000Z"
     }
   },
   "features": {
@@ -52,7 +56,7 @@
       "mode": "built-in",
       "service": null,
       "providers": ["email", "github"],
-      "adminSeeded": false,
+      "adminSeeded": true,
       "twoFactor": false,
       "emailVerification": false
     },
@@ -83,6 +87,12 @@
     "provider": "cloudflare",
     "zoneId": null,
     "nameservers": [],
+    "status": "pending",
     "records": []
+  },
+  "storage": {
+    "d1": true,
+    "kv": false,
+    "r2": false
   }
 }
