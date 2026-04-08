@@ -6,28 +6,15 @@
     "directory": "dist",
     "binding": "ASSETS"
   },
-  "routes": [
-    {
-      "pattern": "dashboard.learntruefacts.ai",
-      "custom_domain": true
-    }
-  ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "learn-true-facts-dashboard-db",
-      "database_id": "placeholder-run-wrangler-d1-create"
+      "database_id": "a94bf3b6-a082-4cde-a109-53a0e4864780"
     }
   ],
-  "triggers": {
-    "crons": [
-      "*/1 * * * *",
-      "*/5 * * * *",
-      "0 * * * *"
-    ]
-  },
   "vars": {
-    "API_BACKEND_URL": "https://learn-true-facts-production.up.railway.app",
+    "API_BACKEND_URL": "https://backend-production-c42c9.up.railway.app",
     "MAIN_SITE_URL": "https://learntruefacts.ai",
     "ADMIN_SITE_URL": "https://admin.learntruefacts.ai"
   }

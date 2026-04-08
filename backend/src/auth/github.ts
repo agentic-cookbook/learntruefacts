@@ -1,4 +1,3 @@
-{{#IF_GITHUB_OAUTH}}
 import { Hono } from "hono";
 import { db } from "../db/client.js";
 import { users, oauthAccounts } from "../db/schema.js";
@@ -110,4 +109,3 @@ githubAuth.get("/callback", async (c) => {
     `${env.CLIENT_URL}/auth/callback?access_token=${accessToken}&refresh_token=${refreshToken}`,
   );
 });
-{{/IF_GITHUB_OAUTH}}

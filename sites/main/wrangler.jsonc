@@ -6,13 +6,7 @@
     "directory": "dist",
     "binding": "ASSETS"
   },
-  "routes": [
-    {
-      "pattern": "learntruefacts.ai",
-      "custom_domain": true
-    }
-  ],
   "vars": {
-    "API_BACKEND_URL": "https://learn-true-facts-production.up.railway.app"
+    "API_BACKEND_URL": "https://backend-production-c42c9.up.railway.app"
   }
 }
