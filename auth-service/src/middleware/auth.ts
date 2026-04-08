@@ -1,7 +1,8 @@
 import type { MiddlewareHandler } from "hono";
+import type { AppEnv } from "../app.js";
 import { verifyToken } from "../auth/jwt.js";
 
-export const authMiddleware: MiddlewareHandler = async (c, next) => {
+export const authMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
   const authHeader = c.req.header("Authorization");
   if (!authHeader?.startsWith("Bearer ")) {
     return c.json(
@@ -13,9 +14,9 @@ export const authMiddleware: MiddlewareHandler = async (c, next) => {
   const token = authHeader.slice(7);
   try {
     const { payload } = await verifyToken(token);
-    c.set("userId" as any, payload.sub!);
-    c.set("userEmail" as any, payload.email as string);
-    c.set("userRole" as any, payload.role as string);
+    c.set("userId", payload.sub!);
+    c.set("userEmail", payload.email as string);
+    c.set("userRole", payload.role as string);
   } catch {
     return c.json(
       { type: "about:blank", title: "Unauthorized", status: 401, detail: "Invalid or expired token" },
@@ -26,8 +27,8 @@ export const authMiddleware: MiddlewareHandler = async (c, next) => {
   await next();
 };
 
-export const adminOnly: MiddlewareHandler = async (c, next) => {
-  const role = c.get("userRole" as any);
+export const adminOnly: MiddlewareHandler<AppEnv> = async (c, next) => {
+  const role = c.get("userRole");
   if (role !== "admin") {
     return c.json(
       { type: "about:blank", title: "Forbidden", status: 403, detail: "Admin access required" },

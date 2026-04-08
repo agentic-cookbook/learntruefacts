@@ -1,10 +1,11 @@
 import { Hono } from "hono";
+import type { AppEnv } from "../app.js";
 import { eq } from "drizzle-orm";
 import { db } from "../db/client.js";
 import { users } from "../db/schema.js";
 import { authMiddleware, adminOnly } from "../middleware/auth.js";
 
-export const usersRoutes = new Hono();
+export const usersRoutes = new Hono<AppEnv>();
 
 usersRoutes.use("*", authMiddleware, adminOnly);
 

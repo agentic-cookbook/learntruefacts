@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import type { AppEnv } from "../app.js";
 import { eq } from "drizzle-orm";
 import { db } from "../db/client.js";
 import { users } from "../db/schema.js";
@@ -7,7 +8,7 @@ import { signAccessToken, signRefreshToken, verifyToken } from "../auth/jwt.js";
 import { generateRefreshToken, storeRefreshToken, validateRefreshToken, revokeRefreshToken } from "../auth/session.js";
 import { authMiddleware } from "../middleware/auth.js";
 
-export const authRoutes = new Hono();
+export const authRoutes = new Hono<AppEnv>();
 
 authRoutes.post("/register", async (c) => {
   const { email, password } = await c.req.json<{ email: string; password: string }>();

@@ -8,7 +8,16 @@ import { usersRoutes } from "./routes/users.js";
 import { jwksRoutes } from "./routes/jwks.js";
 import { healthRoutes } from "./routes/health.js";
 
-const app = new Hono();
+export type AppEnv = {
+  Variables: {
+    userId: string;
+    userEmail: string;
+    userRole: string;
+    requestId: string;
+  };
+};
+
+const app = new Hono<AppEnv>();
 
 app.use("*", logger());
 app.use("*", corsMiddleware);
