@@ -1,0 +1,50 @@
+import { Hono } from "hono";
+import { logger } from "hono/logger";
+import { corsMiddleware } from "./middleware/cors.js";
+import { errorHandler } from "./middleware/error.js";
+import { requestLogger } from "./middleware/logger.js";
+import { health } from "./routes/health.js";
+import { auth } from "./routes/auth.js";
+import { publicRoutes } from "./routes/public.js";
+import { adminUsers } from "./routes/admin/users.js";
+import { adminFlags } from "./routes/admin/flags.js";
+import { adminMessaging } from "./routes/admin/messaging.js";
+import { adminFeedback } from "./routes/admin/feedback.js";
+import { githubAuth } from "./auth/github.js";
+
+export type AppEnv = {
+  Variables: {
+    userId: string;
+    userEmail: string;
+    userRole: "admin" | "user";
+    requestId: string;
+  };
+};
+
+export const app = new Hono<AppEnv>();
+
+// Global middleware
+app.use("*", logger());
+app.use("*", corsMiddleware);
+app.use("*", requestLogger);
+app.onError(errorHandler);
+app.notFound((c) => {
+  return c.json(
+    { type: "about:blank", title: "Not Found", status: 404, detail: `${c.req.method} ${c.req.path} not found` },
+    404,
+  );
+});
+
+// Public routes (no auth)
+app.route("/api/health", health);
+app.route("/api/auth", auth);
+app.route("/api/auth/github", githubAuth);
+app.route("/api/public", publicRoutes);
+
+// Admin routes (auth + admin role required)
+app.route("/api/admin/users", adminUsers);
+app.route("/api/admin/flags", adminFlags);
+app.route("/api/admin/messaging", adminMessaging);
+app.route("/api/admin/feedback", adminFeedback);
+
+export type AppType = typeof app;

@@ -1,0 +1,30 @@
+{
+  "name": "learn-true-facts-auth-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/db/seed.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "hono": "^4.7.0",
+    "drizzle-orm": "^0.39.0",
+    "postgres": "^3.4.5",
+    "jose": "^6.0.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "drizzle-kit": "^0.30.0",
+    "@types/node": "^22.0.0",
+    "@types/bcrypt": "^5.0.2"
+  }
+}

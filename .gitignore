@@ -1,1 +1,9 @@
+node_modules/
+dist/
+.wrangler/
+.site/scaffold.py
+.dev.vars
+.env
+.env.local
+*.log
 .DS_Store

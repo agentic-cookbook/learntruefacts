@@ -1,0 +1,88 @@
+{
+  "version": "1.0.0",
+  "_site_manager_version": "1.7.0",
+  "project": {
+    "name": "learn-true-facts",
+    "displayName": "Learn True Facts",
+    "domain": "learntruefacts.ai",
+    "type": "full",
+    "created": "2026-04-08T22:51:04.799027+00:00"
+  },
+  "services": {
+    "backend": {
+      "status": "scaffolded",
+      "platform": "railway",
+      "url": null,
+      "database": "postgresql",
+      "lastDeployed": null
+    },
+    "auth-service": {
+      "status": "scaffolded",
+      "platform": "railway",
+      "url": null,
+      "database": "postgresql",
+      "lastDeployed": null
+    },
+    "main": {
+      "status": "scaffolded",
+      "platform": "cloudflare",
+      "domain": "learntruefacts.ai",
+      "workerName": "learn-true-facts-main",
+      "lastDeployed": null
+    },
+    "admin": {
+      "status": "scaffolded",
+      "platform": "cloudflare",
+      "domain": "admin.learntruefacts.ai",
+      "workerName": "learn-true-facts-admin",
+      "lastDeployed": null
+    },
+    "dashboard": {
+      "status": "scaffolded",
+      "platform": "cloudflare",
+      "domain": "dashboard.learntruefacts.ai",
+      "workerName": "learn-true-facts-dashboard",
+      "d1Database": "learn-true-facts-dashboard-db",
+      "lastDeployed": null
+    }
+  },
+  "features": {
+    "auth": {
+      "enabled": true,
+      "mode": "built-in",
+      "service": null,
+      "providers": ["email", "github"],
+      "adminSeeded": false,
+      "twoFactor": false,
+      "emailVerification": false
+    },
+    "featureFlags": {
+      "enabled": true
+    },
+    "email": {
+      "enabled": false,
+      "provider": null
+    },
+    "sms": {
+      "enabled": false,
+      "provider": null
+    },
+    "abTesting": {
+      "enabled": false
+    },
+    "observability": {
+      "enabled": true,
+      "provider": "built-in"
+    },
+    "logging": {
+      "enabled": true,
+      "structured": true
+    }
+  },
+  "dns": {
+    "provider": "cloudflare",
+    "zoneId": null,
+    "nameservers": [],
+    "records": []
+  }
+}
