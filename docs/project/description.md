@@ -12,14 +12,14 @@ Learn True Facts is a public-facing chat application featuring an AI improv come
 - Multi-provider LLM abstraction (Cloudflare Workers AI, Google Gemini, Groq, Claude)
 - Server-Sent Events for real-time streaming responses
 - Admin portal and analytics dashboard
-- RS256 JWT authentication via shared agentic-auth-service
+- RS256 JWT authentication via shared agenticauthservice
 
 ## Tech Stack (Planned)
 
 - **Frontend:** React 19 + Vite + Tailwind CSS 4 + TanStack Router/Query
 - **Backend:** Hono + Drizzle ORM + PostgreSQL + Zod
 - **Infrastructure:** Cloudflare Workers (frontend), Railway (backend)
-- **Auth:** RS256 JWT via agentic-auth-service
+- **Auth:** RS256 JWT via agenticauthservice
 - **Domain:** learntruefacts.com
 
 ## Status
@@ -28,5 +28,5 @@ Planning / pre-implementation (design and research phase).
 
 ## Related Projects
 
-- [Agentic Auth Service](../../agentic-auth-service/docs/project/description.md) — shared authentication service
+- [Agentic Auth Service](../../agenticauthservice/docs/project/description.md) — shared authentication service
 - [MyAgenticProjects](../../myagenticprojects/docs/project/description.md) — similar tech stack (Hono + React + Railway + Cloudflare)

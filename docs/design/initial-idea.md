@@ -21,7 +21,7 @@ The AI acts as a confident, deadpan improv comedian who presents "true facts" th
 - **Plausible-sounding nonsense delivered with authority** — scientific-sounding explanations, specific dates and numbers, attributed quotes
 - **Layered humor** — some jokes are obvious, others require knowledge of the real facts to catch
 
-The persona will be fully designed using our [persona template](../../official-agent-registry/docs/research/ai-persona-template.md) and registered in the [Official Agent Registry](../../officialagentregistry) with name, avatar, backstory, and personality traits.
+The persona will be fully designed using our [persona template](../../agenticregistry/docs/research/ai-persona-template.md) and registered in the [Official Agent Registry](../../agenticregistry) with name, avatar, backstory, and personality traits.
 
 ### The Interface
 
@@ -96,7 +96,7 @@ From our [LLM research](../research/llm-chat-widget-research.md):
 | **Backend API** | Hono + Drizzle ORM + PostgreSQL + Zod | Railway |
 | **Admin site** | React 19 + Vite + Tailwind 4 | Cloudflare Workers (`admin.learntruefacts.com`) |
 | **Dashboard** | React 19 + Vite + Tailwind 4 + D1 SQLite | Cloudflare Workers (`dashboard.learntruefacts.com`) |
-| **Auth** | Shared auth service (RS256 JWT) | Railway (via `agentic-auth-service`) |
+| **Auth** | Shared auth service (RS256 JWT) | Railway (via `agenticauthservice`) |
 | **Streaming** | SSE (`text/event-stream`) | Railway → Browser |
 
 ### Data Model (key tables)
@@ -107,7 +107,7 @@ From our [LLM research](../research/llm-chat-widget-research.md):
 - **shared_conversations** — conversation_id, share_token, created_at, expires_at
 
 ### Auth Integration
-Uses the [agentic-auth-service](../../agentic-auth-service):
+Uses the [agenticauthservice](../../agenticauthservice):
 - RS256 JWT validation via `/.well-known/jwks.json`
 - Supports: email/password (with 2FA), GitHub OAuth, Google OAuth, Apple Sign-In (to be added)
 - Anonymous users get full chat access, just can't save/share conversations
@@ -131,7 +131,7 @@ PUT    /api/preferences/model       — Set preferred model (auth required)
 
 The "Learn True Facts" persona will be registered in the Official Agent Registry:
 
-- **Slug:** `learn-true-facts` (at `officialagentregistry.com/learn-true-facts`)
+- **Slug:** `learn-true-facts` (at `agenticregistry.com/learn-true-facts`)
 - **Display Name:** TBD (the comedian character's name)
 - **Description:** Improv comedian AI that teaches you "true facts" — combining real events with absurd fiction
 - **Config (JSONB):** Full persona definition — backstory, personality traits, voice, constraints, sample interactions
